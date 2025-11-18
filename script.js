@@ -5,15 +5,16 @@ document.getElementById("formCadastro").addEventListener("submit", function(even
     const nome = document.getElementById("nome").value;
     const nota1 = parseFloat(document.getElementById("nota1").value);
     const nota2 = parseFloat(document.getElementById("nota2").value);
+    const nota3 = parseFloat(document.getElementById("nota3").value);
 
     // Verificar se todos os campos foram preenchidos
-    if (!nome || isNaN(nota1) || isNaN(nota2)) {
+    if (!nome || isNaN(nota1) || isNaN(nota2)) || isNaN(nota3)) {
         alert("Por favor, preencha todos os campos corretamente.");
         return;
     }
 
     // Calcular a média
-    const media = (nota1 + nota2) / 2;
+    const media = (nota1 + nota2 + nota3) / 3;
 
     // Determinar o status (Aprovado ou Reprovado)
     const status = media >= 6 ? "Aprovado" : "Reprovado";
@@ -27,7 +28,8 @@ document.getElementById("formCadastro").addEventListener("submit", function(even
         <td>${nome}</td>
         <td>${nota1}</td>
         <td>${nota2}</td>
-        <td>${media.toFixed(2)}</td>
+        <td>${nota3}</td>
+        <td>${media.toFixed(3)}</td>
         <td class="${status.toLowerCase()}">${status}</td>
     `;
 
